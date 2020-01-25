@@ -1,0 +1,57 @@
+{
+  "$id": "https://example.com/arrays.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "A representation of user attributes",
+  "type": "object",
+  "properties": {
+    "profile": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "city": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 256
+        },
+        "job": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 256
+        },
+        "age": {
+          "type": "number",
+          "minimum": 18,
+          "maximum": 100
+        }
+      },
+      "required": ["name", "city"]
+    },
+    "pets": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/pet" }
+    }
+  },
+  "definitions": {
+    "pet": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "monthCosts": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000000,
+          "default": 0
+        }
+      }
+    }
+  }
+}
