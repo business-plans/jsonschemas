@@ -3,6 +3,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": "A representation of user attributes",
   "type": "object",
+  "additionalProperties": false,
   "properties": {
     "profile": {
       "type": "object",
@@ -28,7 +29,8 @@
           "maximum": 100
         }
       },
-      "required": ["name", "city"]
+      "required": ["name", "city"],
+      "additionalProperties": false
     },
     "pets": {
       "type": "array",
@@ -51,7 +53,8 @@
           "maximum": 1000000,
           "default": 0
         }
-      }
+      },
+      "additionalProperties": false
     }
   }
 }
